@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('todos', 'TodoListController@index');
+Route::post('todos', 'TodoListController@store');
+Route::get('todos/{id}', 'TodoListController@show');
+Route::put('todos/{todo}', 'TodoListController@markAsCompleted');
+Route::post('todo', 'TodoController@store');
+Route::put('tasks/{task}', 'TodoController@markAsCompleted');
