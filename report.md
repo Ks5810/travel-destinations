@@ -47,7 +47,7 @@ Todo:
     destinations are pinned in the map interface. </dd>
     <ul>
     <li><dd>A destination list like a todo list</dd></li>
-    <li><dd>A map that users' destinations is pinned</dd></li>
+    <li><dd>A map that users' destinations are pinned</dd></li>
     </ul>
 </dl>
 
@@ -65,10 +65,20 @@ Todo:
 Note:
 - Implement map integration later
 
-
 ## Sat 6/6
+Completed:
+
+Todo:
+- See if api route is working correctly
+- Implement simple frontend to make requests
+
+Note:
+- [Laravel Database]
+- [Laravel ORM]
+
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
 [Service Container]: https://laravel.com/docs/7.x/container
 [Laravel React]: https://blog.pusher.com/react-laravel-application/
-
+[Laravel Database]: https://laravel.com/docs/7.x/database
+[Laravel ORM]: https://laravel.com/docs/7.x/eloquent

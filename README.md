@@ -7,7 +7,7 @@
     destinations are pinned in the map interface. </dd>
     <ul>
     <li><dd>A destination list like a todo list</dd></li>
-    <li><dd>A map that users' destinations is pinned</dd></li>
+    <li><dd>A map that users' destinations are pinned</dd></li>
     </ul>
 </dl>
 
