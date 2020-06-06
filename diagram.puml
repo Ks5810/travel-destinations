@@ -1,0 +1,44 @@
+@startuml
+title Travel Destination
+
+Object User {
+    int id
+    string name
+    string email
+    string password
+    string email_vilified_at
+    string remember_token
+}
+
+Object Destination {
+    int id
+    int user_id (foreign key)
+    string name
+    bool visited
+    int number
+}
+
+Object Position {
+    double lat
+    double lng
+}
+
+User ||--o{ Destination
+Destination ||--o| Position
+
+'
+'note left of User
+'
+'end note
+'
+'note left of Destination
+'
+'end note
+'
+'note right of Position
+'
+'end note
+
+
+
+@enduml

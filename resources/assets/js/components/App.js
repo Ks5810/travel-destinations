@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 // import Header from './Header'
 // import NewProject from './NewProject'
-import TodoList from './TodoList'
+import DestinationList from './DestinationList'
 // import SingleProject from './SingleProject'
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Switch>
-                        <Route exact path='/' component={TodoList} />
+                        <Route exact path='/' component={DestinationList} />
                     </Switch>
                 </div>
             </BrowserRouter>

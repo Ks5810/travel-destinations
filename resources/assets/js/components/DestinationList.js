@@ -2,14 +2,14 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class TodoList extends Component {
+class DestinationList extends Component {
     render () {
         return (
             <div className='container'>
-                <p>It is form TodoList</p>
+                <p>It is form Destination List</p>
             </div>
         )
     }
 }
 
-export default TodoList
+export default DestinationList

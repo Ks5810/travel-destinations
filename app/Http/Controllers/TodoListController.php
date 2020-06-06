@@ -29,12 +29,12 @@ class TodoListController extends Controller
             'name' => $validatedData['name'],
         ]);
 
-        return response()->json('TodoList created!');
+        return response()->json('DestinationList created!');
     }
 
-    public function show($id)
+    public function show($id): string
     {
-        $todos = TodoList::with(['todo' => function ($query) {
+        $todos = TodoList::with(['todo' => static function ($query) {
             $query->where('is_completed', false);
         }])->find($id);
 

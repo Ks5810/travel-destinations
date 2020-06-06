@@ -40,6 +40,31 @@ Todo:
 1. implement frontend
 
 ## Fri 6/5
+<dl>
+    <dt>Travel Destination List:</dt>
+    <dd>A travel destination list web application that enables each user to enter
+    where they want to travel and have a google map integration that their
+    destinations are pinned in the map interface. </dd>
+    <ul>
+    <li><dd>A destination list like a todo list</dd></li>
+    <li><dd>A map that users' destinations is pinned</dd></li>
+    </ul>
+</dl>
+
+Completed:  
+- Designed basic structure of the database
+    - `Destination`
+    - `User`   
+- Drew UML Object Diagram
+- Migrated Destination table
+
+Todo:
+- See if api route is working correctly
+- Implement simple frontend to make requests
+
+Note:
+- Implement map integration later
+
 
 ## Sat 6/6
 
