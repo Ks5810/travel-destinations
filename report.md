@@ -75,7 +75,6 @@ Completed:
 
 Notes:
 - Used Object for `Usestate` declaration AGAIN AND WAISTED AN HOUR.
-- `mix.react()` is not working with `mix.webpackConfig()` which is obvious
 - Maybe use `mix.webpackConfig()` instead of ''`mix.react()` for production setting?
 - `app.blade.php` is like the template file in Django
 - Backend is responding with Internal server error
