@@ -62,19 +62,29 @@ Todo:
 - See if api route is working correctly
 - Implement simple frontend to make requests
 
-Note:
+Notes:
 - Implement map integration later
+- [Laravel Database]
+- [Laravel ORM]
 
 ## Sat 6/6
 Completed:
+- Read [Laravel Frontend] and tried custom webpack configuration and faild
+- Decided to use mix
+- Implemented form in React
+
+Notes:
+- Used Object for `Usestate` declaration AGAIN AND WAISTED AN HOUR.
+- `mix.react()` is not working with `mix.webpackConfig()` which is obvious
+- Maybe use `mix.webpackConfig()` instead of ''`mix.react()` for production setting?
+- `app.blade.php` is like the template file in Django
+- Backend is responding with Internal server error
 
 Todo:
-- See if api route is working correctly
-- Implement simple frontend to make requests
+- Post `Destination` and Get `Destinations` wihtout authentication
+- Start implementing User auth
 
-Note:
-- [Laravel Database]
-- [Laravel ORM]
+## Sun 6/7
 
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
@@ -82,3 +92,4 @@ Note:
 [Laravel React]: https://blog.pusher.com/react-laravel-application/
 [Laravel Database]: https://laravel.com/docs/7.x/database
 [Laravel ORM]: https://laravel.com/docs/7.x/eloquent
+[Laravel Frontend]: https://laravel.com/docs/7.x/blade
