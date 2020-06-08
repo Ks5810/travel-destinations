@@ -7,14 +7,34 @@ use Illuminate\Http\Request;
 
 class DestinationController extends Controller
 {
+    public function index()
+    {
+        return Destination::all();
+    }
+
+    public function show($id)
+    {
+        return Destination::find($id);
+    }
+
     public function store(Request $request)
     {
-        $validatedData = $request->validate(['name' => 'required']);
-        $destination = Destination::create([
-            'name' => $validatedData['name'],
-            'user_id' => $request->user_id,
-        ]);
+        return Destination::create($request->all());
+    }
 
-        return $destination->toJson();
+    public function update(Request $request, $id)
+    {
+        $article = Destination::findOrFail($id);
+        $article->update($request->all());
+
+        return $article;
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $article = Destination::findOrFail($id);
+        $article->delete();
+
+        return 204;
     }
 }

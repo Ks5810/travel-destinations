@@ -38,7 +38,7 @@ export const DestinationForm = () =>
                 
             } catch(error)
             {
-                console.log("Error processing post request");
+                console.log(error);
             }
         
         }

@@ -84,6 +84,25 @@ Todo:
 - Start implementing User auth
 
 ## Sun 6/7
+Completed:  
+- Installed pgadmin3
+- Created table seeder for `User` and `Destination` table
+- Enabled mix source map to debug React
+- Displaying seeded destination list on browser
+
+Notes:  
+- Api uri in [/routes/api.php] is prefixed with /api/
+- Controllers takes a function from [/routes/api.php] and defined in files in
+[/app/Http/Controllers]
+
+Todo:
+- Define functions in controllers to handle user authentication
+  - Each users should only have list items that has `user_id` of the user's id. 
+- Implement user auth logic on the frontend
+
+## Mon 6/8
+
+## Tue 6/9
 
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
@@ -92,3 +111,6 @@ Todo:
 [Laravel Database]: https://laravel.com/docs/7.x/database
 [Laravel ORM]: https://laravel.com/docs/7.x/eloquent
 [Laravel Frontend]: https://laravel.com/docs/7.x/blade
+[Api Tutorial]: https://www.toptal.com/laravel/restful-laravel-api-tutorial
+[/routes/api.php]: ./routes/api.php
+[/app/Http/Controllers]: ./app/Http/Controllers

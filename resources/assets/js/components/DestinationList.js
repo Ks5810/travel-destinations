@@ -4,23 +4,31 @@
  */
 
 import React from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, ListGroup, ListGroupItem } from "react-bootstrap";
 
 
 const DestinationList = ({ destinations }) =>
 {
     return (
-        <div className="blog-post">
+        <div className='destination-list'>
+            <h3>Your Destination List</h3>
             {
                 destinations &&
-                <Container>
+                <ListGroup>
                     {
-                        destinations.map(destination =>
+                        destinations.map((destination, ind)=>
                         {
-                            return <h3>{ destination.name }</h3>
+                            return <ListGroupItem
+                                key={ind}
+                                className='destination-list-item'>
+                                <h4>{destination.name}</h4>
+                                <Button variant='danger'>
+                                    Visited
+                                </Button>
+                            </ListGroupItem>
                         })
                     }
-                </Container>
+                </ListGroup>
             }
         </div>
     )
