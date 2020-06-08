@@ -13,6 +13,9 @@ const App = () =>
     const destsFetch = useDestinationFetch();
     return (
         <Container>
+            {
+                destsFetch && console.log(destsFetch)
+            }
             <div className="page">
                 
                 <h1>Travel Destination</h1>

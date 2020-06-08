@@ -4,6 +4,15 @@
   padding: 5rem;
 }
 
+.destination-list {
+  padding-top: 2rem;
+}
+
+.destination-list-item {
+  display: flex !important;
+  justify-content: space-between;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
