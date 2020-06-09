@@ -13,6 +13,3 @@ require('./bootstrap');
  */
 
 require('./components/App.js');
-require('./components/DestinationList.js');
-require('./components/DestinationForm.js');
-require('./components/useDestinationFetch.js');

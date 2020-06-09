@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         // Create a pass word hashed from the string "keisuke"
-        $password = Hash::make('keisuke');
+        $password = 126621;
 
         User::create([
             'name' => 'Administrator',

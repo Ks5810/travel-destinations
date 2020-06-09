@@ -1,35 +1,20 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
+import { Provider, useStore } from 'react-redux';
 import ReactDOM from 'react-dom'
-// import Header from './Header'
-// import NewProject from './NewProject'
-import { useDestinationFetch } from './useDestinationFetch'
-import { DestinationForm } from "./DestinationForm";
-import DestinationList from "./DestinationList";
-import { Container } from "react-bootstrap";
-// import SingleProject from './SingleProject'
+import { loadUser } from '../actions/auth'
+import AppRouter from "../routers/AppRouter";
+import store from "./store"
 
 const App = () =>
 {
-    const destsFetch = useDestinationFetch();
+    useEffect(() => {
+        store.dispatch(loadUser());
+        
+    }, [])
     return (
-        <Container>
-            {
-                destsFetch && console.log(destsFetch)
-            }
-            <div className="page">
-                
-                <h1>Travel Destination</h1>
-                <DestinationForm/>
-                {
-                    destsFetch && <>
-                        { destsFetch.fetched && destsFetch.data &&
-                          <DestinationList destinations={ destsFetch.data }/>
-                        }
-                    
-                    </>
-                }
-            </div>
-        </Container>
+        <Provider store={store}>
+            <AppRouter/>
+        </Provider>
     )
 }
 

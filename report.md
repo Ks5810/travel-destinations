@@ -101,8 +101,35 @@ Todo:
 - Implement user auth logic on the frontend
 
 ## Mon 6/8
+Completed:  
+- Installed [Sanctum][Laravel Sanctum]
+- Implemented frontend auth logic with redux
+Notes:  
+- Using [Sanctum][Laravel Sanctum]'s SPI Authentication
+- Getting incorrect response from the server
+Todo:
+- Fix AuthController
 
 ## Tue 6/9
+Completed:
+- Turned out [Passport][Laravel Passport] is easier to use
+- Working token authentication
+
+Notes:
+- Using [Laravel Passport] for authentication
+
+Todo:
+- Modify routing and destination table to be unique to user
+- Start reading about [Google Map Api]
+- Implement simple map using [React Google Map]
+
+## Wed 6/10
+Completed:
+
+Notes:
+
+Todo:
+
 
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
@@ -111,6 +138,10 @@ Todo:
 [Laravel Database]: https://laravel.com/docs/7.x/database
 [Laravel ORM]: https://laravel.com/docs/7.x/eloquent
 [Laravel Frontend]: https://laravel.com/docs/7.x/blade
+[Laravel Sanctum]: https://laravel.com/docs/7.x/sanctum
+[Laravel Passport]: https://laravel.com/docs/7.x/passport
 [Api Tutorial]: https://www.toptal.com/laravel/restful-laravel-api-tutorial
 [/routes/api.php]: ./routes/api.php
 [/app/Http/Controllers]: ./app/Http/Controllers
+[Google Map Api]: https://developers.google.com/maps/documentation
+[React Google Map]: https://www.npmjs.com/package/react-google-maps
