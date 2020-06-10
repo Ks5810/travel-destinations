@@ -112,11 +112,11 @@ Todo:
 
 ## Tue 6/9
 Completed:
-- Turned out [Passport][Laravel Passport] is easier to use
-- Working token authentication
-
+- Tried [Passport][Laravel Passport] and found it's not for a SPA
+- Going back to [Sanctum][Laravel Sanctum]
 Notes:
-- Using [Laravel Passport] for authentication
+- [Laravel Passport] worked for authenticating a user, couldn't figure out how
+to work with authenticated routes
 
 Todo:
 - Modify routing and destination table to be unique to user
@@ -127,6 +127,11 @@ Todo:
 Completed:
 
 Notes:
+
+
+
+
+
 
 Todo:
 

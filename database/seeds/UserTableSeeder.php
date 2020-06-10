@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserTableSeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class UserTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         // Create a pass word hashed from the string "keisuke"
-        $password = 126621;
+        $password = Hash::make('126621');
 
         User::create([
             'name' => 'Administrator',
@@ -26,13 +27,5 @@ class UserTableSeeder extends Seeder
             'password' => $password,
         ]);
 
-        // And now let's generate a few dozen users for our app:
-        for ($i = 0; $i < 10; $i++) {
-            User::create([
-                'name' => $faker->name,
-                'email' => $faker->email,
-                'password' => $password,
-            ]);
-        }
     }
 }

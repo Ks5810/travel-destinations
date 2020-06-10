@@ -29,5 +29,14 @@ class DestinationTableSeeder extends Seeder
                 'visited' => false,
             ]);
         }
+        // Creating another ten destinations for user with id 2
+        for ($i = 0; $i < 10; $i++) {
+            Destination::create([
+                'name' => $faker->name,
+                'user_id' => 2,
+                'number' => $i,
+                'visited' => false,
+            ]);
+        }
     }
 }

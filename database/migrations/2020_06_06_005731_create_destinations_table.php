@@ -13,13 +13,16 @@ class CreateDestinationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('destinations', function (Blueprint $table) {
+        Schema::table('destinations', static function (Blueprint $table)
+        {
             $table->id('id');
             $table->timestamps();
             $table->string('name');
-            $table->integer('user_id');
-            $table->unsignedInteger('number');
-            $table->boolean('visited', false);
+            $table->unsignedInteger('number')->nullable($value = true);
+            $table->boolean('visited')->nullable($value = true);
+
+            // Foreign key associated to id of owner
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

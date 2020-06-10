@@ -3,7 +3,7 @@ import { DestinationForm } from "./DestinationForm";
 import DestinationList from "./DestinationList";
 import { Button, Container } from "react-bootstrap";
 import { useDestinationFetch } from "./useDestinationFetch";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/auth";
 
 
@@ -11,6 +11,7 @@ const DestinationPage = () =>
 {
     const destsFetch = useDestinationFetch();
     const dispatch = useDispatch();
+    const user = useSelector(state => state.auth.user);
     return (
         <Container>
             {
@@ -31,6 +32,7 @@ const DestinationPage = () =>
                     </>
                 }
             </div>
+            {console.log(user)}
         </Container>
     )
 };

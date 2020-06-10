@@ -8,10 +8,11 @@ import { requestConfig } from "../lib";
 
 export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: USER_LOADING });
-    axios("/api/destinations", requestConfig(getState))
+    axios("/api/auth/user", requestConfig(getState))
         .then(res => setTimeout(() =>
              dispatch({ type: USER_LOADED, payload: res.data}), TIMEOUT ))
         .catch(err => {
+            console.log(err);
             dispatch(returnErrors(err.response.data, err.status));
             dispatch({ type: AUTH_ERROR });
         })

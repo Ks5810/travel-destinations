@@ -3,8 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Destination extends Model
 {
     protected $fillable = ['id', 'name', 'user_id', 'visited', 'number'];
+
+    /**
+     * Define relationship to users table
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('user', 'user_id');
+    }
 }

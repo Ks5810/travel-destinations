@@ -10,7 +10,7 @@ import {
 // Auth Reducer
 
 export const authDefaultReducer = {
-    token: localStorage.getItem("token"),
+    token: localStorage.getItem("access_token"),
     isAuthenticated: null,
     isLoading: false,
     user: null,
@@ -29,7 +29,8 @@ export default (state = authDefaultReducer, action) => {
                 user: action.payload
             };
         case LOGIN_SUCCESS:
-            localStorage.setItem("token", action.payload.token);
+            console.log("action.payload",action.payload.name);
+            localStorage.setItem("access_token", action.payload.access_token);
             return {
                 ...state,
                 ...action.payload,
@@ -38,7 +39,7 @@ export default (state = authDefaultReducer, action) => {
                 errors: null
             };
         case REGISTER_SUCCESS:
-            localStorage.setItem("token", action.payload.token);
+            localStorage.setItem("access_token", action.payload.access_token);
             return {
                 ...state,
                 ...action.payload,
@@ -47,24 +48,18 @@ export default (state = authDefaultReducer, action) => {
                 errors: null
             };
         case LOGOUT_SUCCESS:
-            localStorage.removeItem("token");
+            localStorage.removeItem("access_token");
             return {
                 ...state,
                 errors: action.payload,
                 token: null,
                 user: null,
                 isAuthenticated: false,
-                isLoading: false,
-                basicInfo: [],
-                experiences: [],
-                educations: [],
-                listingInfo: [],
-                generatedInfo: [],
             };
         case AUTH_ERROR:
         case LOGIN_FAIL:
         case REGISTER_FAIL:
-            localStorage.removeItem("token");
+            localStorage.removeItem("access_token");
             return {
                 ...state,
                 token: null,
