@@ -8,7 +8,7 @@ import { requestConfig } from "../lib";
 
 export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: USER_LOADING });
-    axios("/api/auth/user", requestConfig(getState))
+    axios("/user")
         .then(res => setTimeout(() =>
              dispatch({ type: USER_LOADED, payload: res.data}), TIMEOUT ))
         .catch(err => {
@@ -22,16 +22,27 @@ export const login = (email, password) => (dispatch, getState) => {
     dispatch({ type: USER_LOADING });
     const params = { email, password };
     console.log("login() in actions/action called");
-    axios.post("/api/auth/login", params, requestConfig(getState))
-         .then(res => {
-             setTimeout(() => dispatch({ type: LOGIN_SUCCESS, payload: res.data }), TIMEOUT)
-         })
-         .catch(err => console.log(err));
+    
+    /**
+     * @link https://laravel.com/docs/7.x/sanctum#spa-authentication
+     */
+    axios.defaults.withCredentials = true;
+    
+    // Making a request to /sanctum/csrf-cookie first to initialize CSRF
+    // protection. https://laravel.com/docs/7.x/sanctum#spa-authentication
+    axios.get('/sanctum/csrf-cookie').then(res =>
+    {
+        axios.post("/login", params)
+            .then(res => { setTimeout(() =>
+                    dispatch({ type: LOGIN_SUCCESS, payload: res.data }),
+                TIMEOUT)})
+            .catch(err => console.log(err));
+    }).catch(err => console.log(err));
 };
 
 export const logout = () => (dispatch, getState) => {
     dispatch({ type: USER_LOADING });
-    axios.get("/api/auth/logout", requestConfig(getState))
+    axios.get("/logout")
          .then(res => setTimeout(() => dispatch(
              { type: LOGOUT_SUCCESS, payload: res.data }), TIMEOUT))
          .catch(err => dispatch(returnErrors(err.response.data, err.status)) );
@@ -40,7 +51,7 @@ export const logout = () => (dispatch, getState) => {
 export const register = (username, email, password) => (dispatch, getState) => {
     dispatch({ type: USER_LOADING });
     const params = { name: username, email, password };
-    axios.post("/api/auth/register", params, requestConfig(getState))
+    axios.post("/register", params)
          .then(res => setTimeout(() => dispatch(
              { type: REGISTER_SUCCESS, payload: res.data }), TIMEOUT))
          .catch(err => {

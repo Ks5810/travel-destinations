@@ -9,7 +9,7 @@ const PublicRoute = ({
     ...rest
 }) =>
 {
-    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const isAuthenticated = useSelector((state) => !!state.auth.user);
     const isLoading = useSelector(state => state.auth.isLoading);
     return (
         <>

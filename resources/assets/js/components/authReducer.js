@@ -10,8 +10,7 @@ import {
 // Auth Reducer
 
 export const authDefaultReducer = {
-    token: localStorage.getItem("access_token"),
-    isAuthenticated: null,
+    isAuthenticated: false,
     isLoading: false,
     user: null,
 };
@@ -29,26 +28,24 @@ export default (state = authDefaultReducer, action) => {
                 user: action.payload
             };
         case LOGIN_SUCCESS:
-            console.log("action.payload",action.payload.name);
-            localStorage.setItem("access_token", action.payload.access_token);
             return {
                 ...state,
                 ...action.payload,
                 isAuthenticated: true,
                 isLoading: false,
-                errors: null
+                errors: null,
+                user: action.payload
             };
         case REGISTER_SUCCESS:
-            localStorage.setItem("access_token", action.payload.access_token);
             return {
                 ...state,
                 ...action.payload,
                 isAuthenticated: true,
                 isLoading: false,
-                errors: null
+                errors: null,
+                user: action.payload
             };
         case LOGOUT_SUCCESS:
-            localStorage.removeItem("access_token");
             return {
                 ...state,
                 errors: action.payload,
@@ -59,7 +56,6 @@ export default (state = authDefaultReducer, action) => {
         case AUTH_ERROR:
         case LOGIN_FAIL:
         case REGISTER_FAIL:
-            localStorage.removeItem("access_token");
             return {
                 ...state,
                 token: null,

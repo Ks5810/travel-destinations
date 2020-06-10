@@ -1,35 +1,29 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('logout', 'AuthController@logout');
 Route::post('register', 'AuthController@register');
 Route::post('login', 'Auth\AuthController@login');
 
-Route::get('api/user', function () {
-    Route::get('destinations', 'DestinationController@index');
-    Route::get('destinations/{id}', 'DestinationController@show');
-    Route::post('destinations', 'DestinationController@store');
-    Route::put('destinations/{id}', 'DestinationController@update');
-    Route::delete('destinations/{id}', 'DestinationController@delete');
-})->middleware('auth.basic.once');
+// User authenticated routes
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return response()->json($request->user());
+});
 
-// Auth
-//Route::group([
-//    'prefix' => 'auth'
-//], function () {
-//    Route::post('/register', 'AuthController@register');
-//    Route::post('/login', 'Auth\AuthController@login');
-//    Route::middleware(['auth:sanctum'])->group( function ()
-//    {
-//        Route::get('/users', 'UserController@index');
-//        //Authenticated routes
-//        Route::get('logout', 'AuthController@logout');
-//        Route::get('user', 'AuthController@user');
-//        Route::get('destinations', 'DestinationController@index');
-//        Route::get('destinations/{id}', 'DestinationController@show');
-//        Route::post('destinations', 'DestinationController@store');
-//        Route::put('destinations/{id}', 'DestinationController@update');
-//        Route::delete('destinations/{id}', 'DestinationController@delete');
-//    });
+Route::middleware('auth:sanctum')
+    ->get('/logout', 'AuthController@logout');
 
+Route::middleware('auth:sanctum')
+    ->get('/destinations', 'DestinationController@index');
+
+Route::middleware('auth:sanctum')
+    ->get('/destinations/{id}', 'DestinationController@show');
+
+
+//Route::get('logout', 'AuthController@logout');
+//Route::get('destinations', 'DestinationController@index');
+//Route::get('destinations/{id}', 'DestinationController@show');
+//Route::post('destinations', 'DestinationController@store');
+//Route::put('destinations/{id}', 'DestinationController@update');
+//Route::delete('destinations/{id}', 'DestinationController@delete');

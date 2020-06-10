@@ -24,7 +24,7 @@ export const useDestinationFetch = () =>
             {
                 if(!unmounted)
                 {
-                    const tmp = await axios.get("/api/auth/destinations", requestConfig());
+                    const tmp = await axios.get("/destinations", requestConfig());
                     const data = tmp.data ? tmp.data : [];
                     await setDestsFetch(prevState => ({
                         ...prevState,
