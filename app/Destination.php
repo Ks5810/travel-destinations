@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Destination extends Model
 {
-    protected $fillable = ['id', 'name', 'user_id', 'visited', 'number'];
+    protected $fillable = ['id', 'name', 'user_id', 'visited'];
 
     /**
      * Define relationship to users table
@@ -17,4 +17,5 @@ class Destination extends Model
     {
         return $this->belongsTo('user', 'user_id');
     }
+
 }

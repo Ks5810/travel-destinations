@@ -125,17 +125,26 @@ Todo:
 
 ## Wed 6/10
 Completed:
-
-Notes:
+- Defined routes for authentication
+- Implemented basic flow and frontend for auth 
+- Insert and Delete operation on destination list 
  
-
-
-
-
+Notes:
+- Gave up with SPA using React
+- Using builtin blade tamplates now
+- Inserting react component in the blade templates for google map?
 
 Todo:
+- Read [Google Map API Doc][Google Map Api]
+- Think about new columns in Destinationi table
+- Move control flow to Controllers from Routes
 
+## Thu 6/11
+Completed:
 
+Notes:
+
+Todo:
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
 [Service Container]: https://laravel.com/docs/7.x/container

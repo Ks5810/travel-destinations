@@ -18,7 +18,6 @@ class CreateDestinationsTable extends Migration
             $table->id('id');
             $table->timestamps();
             $table->string('name');
-            $table->unsignedInteger('number')->nullable($value = true);
             $table->boolean('visited')->nullable($value = true);
 
             // Foreign key associated to id of owner
