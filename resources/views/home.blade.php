@@ -4,7 +4,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-
                 <div class="card" style="text-align: center">
                     <div class="card-header font-weight-bolder">Hi
                         guest!
@@ -19,8 +18,7 @@
                             <a
                                     class="page-link"
                                     style="margin: 1rem"
-                                    href="/register">Sign in</a></h5>
-
+                                    href="/register">Sign up</a></h5>
                     </div>
                 </div>
             </div>

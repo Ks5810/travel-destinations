@@ -14,17 +14,13 @@ Object Destination {
     int id
     int user_id (foreign key)
     string name
+    string address
     bool visited
-    int number
-}
-
-Object Position {
     double lat
     double lng
 }
 
 User ||--o{ Destination
-Destination ||--o| Position
 
 '
 'note left of User
@@ -38,7 +34,5 @@ Destination ||--o| Position
 'note right of Position
 '
 'end note
-
-
 
 @enduml

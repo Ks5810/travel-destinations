@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Destination extends Model
 {
-    protected $fillable = ['id', 'name', 'user_id', 'visited'];
+    protected $fillable = ['id', 'name', 'user_id', 'visited', 'lat', 'lng'];
 
     /**
      * Define relationship to users table

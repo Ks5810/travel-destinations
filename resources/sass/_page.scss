@@ -7,6 +7,11 @@
 }
 
 .destination-list-item {
-  display: flex !important;
+  display: flex;
   justify-content: space-between;
 }
+
+.card {
+  margin-bottom: 2rem;
+}
+

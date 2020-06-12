@@ -32,30 +32,49 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ $name }}'s Destinations</div>
-
-                    <div class="card-body">
-                        <ul>
-                            @foreach($items as $item)
-                                <li> user_id: {{ $item->user_id }}, name:
-                                    {{$item->name}}
+                    <div class="card-header">{{ $username }}'s Destinations
+                    </div>
+                    <div class="list-group">
+                        @foreach($destinations as $key => $destination)
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ $key+1 }}.  {{
+                                    $destination->name
+                                    }}</h5>
                                     <form
-                                            action="/destinations/{{ $item->id}}"
+                                            action="/destinations/{{
+                                            $destination->id }}"
                                             method="post"
                                     >
                                         {{ method_field('delete') }}
                                         {{ csrf_field() }}
                                         <button
-                                                class="btn btn-danger"
+                                                class="btn btn-sm btn-danger"
                                                 type="submit"
                                         >
-                                            Delete
+                                            Remove
                                         </button>
                                     </form>
-                                </li>
+                                </div>
+                                <div class="px-3 py-1">
+                                    <p class="d-flex w-50
+                                justify-content-between flex-row mb-1">
+                                        <b>latitude:</b> {{ $destination->lat
+                                        }}</p>
+                                    <p class="d-flex w-50
+                                justify-content-between flex-row mb-1">
+                                        <b>longitude:</b> {{ $destination-> lng }}
+                                    </p>
+                                </div>
 
-                            @endforeach
-                        </ul>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div id="map"
+                         center_lat='{{ $center_lat }}'
+                         center_lng='{{ $center_lng }}'
+                         destinations='{{ $destinations }}'>
+                        <script src="../js/app.js"></script>
                     </div>
                 </div>
             </div>

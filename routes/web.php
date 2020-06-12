@@ -25,10 +25,15 @@ Route::get('/destinations', function()
 {
     $username = Auth::user()->name;
     $user_id = Auth::user()->id;
-    $items = Destination::all()->where('user_id', $user_id);
+    $destinations = Destination::all()->where('user_id', $user_id);
+    // Get average of lat and lng fields in destinations to center the map
+    $center_lat = $destinations->average('lat');
+    $center_lng = $destinations->average('lng');
     return view('destinations', [
-        'name' => $username,
-        'items' => $items
+        'username' => $username,
+        'destinations' => $destinations,
+        'center_lat' => $center_lat,
+        'center_lng' => $center_lng
     ]);
 })->middleware('auth');
 
@@ -39,13 +44,21 @@ Route::get('/destinations/create', function (Request $request)
     Destination::create([
         'name' => $request->name,
         'visited' => false,
-        'user_id' => $user_id
+        'user_id' => $user_id,
+        'lat' => $request->lat,
+        'lng' => $request->lng,
     ]);
 
-    $new_destinations = Destination::all()->where('user_id', $user_id);
+    $destinations = Destination::all()->where('user_id', $user_id);
+    // Get average of lat and lng fields in destinations to center the map
+    $center_lat = $destinations->average('lat');
+    $center_lng = $destinations->average('lng');
+
     return view('destinations', [
-        'name' => $username,
-        'items' => $new_destinations
+        'username' => $username,
+        'destinations' => $destinations,
+        'center_lat' => $center_lat,
+        'center_lng' => $center_lng
     ]);
 })->middleware('auth');
 
@@ -57,10 +70,14 @@ Route::delete('/destinations/{id}', function($id)
     $destination = Destination::find($id);
     $destination->delete();
 
-    $new_destinations = Destination::all()->where('user_id', $user_id);
+    $destinations = Destination::all()->where('user_id', $user_id);
+    $center_lat = $destinations->average('lat');
+    $center_lng = $destinations->average('lng');
     return view('destinations', [
-        'name' => $username,
-        'items' => $new_destinations
+        'username' => $username,
+        'destinations' => $destinations,
+        'center_lat' => $center_lat,
+        'center_lng' => $center_lng
     ]);
 })->middleware('auth');
 

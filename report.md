@@ -43,7 +43,7 @@ Todo:
 <dl>
     <dt>Travel Destination List:</dt>
     <dd>A travel destination list web application that enables each user to enter
-    where they want to travel and have a google map integration that their
+    where they want to travel and have a google maps integration that their
     destinations are pinned in the map interface. </dd>
     <ul>
     <li><dd>A destination list like a todo list</dd></li>
@@ -120,8 +120,8 @@ to work with authenticated routes
 
 Todo:
 - Modify routing and destination table to be unique to user
-- Start reading about [Google Map Api]
-- Implement simple map using [React Google Map]
+- Start reading about [Google Maps Api]
+- Implement simple map using [React Google Maps]
 
 ## Wed 6/10
 Completed:
@@ -131,20 +131,39 @@ Completed:
  
 Notes:
 - Gave up with SPA using React
-- Using builtin blade tamplates now
-- Inserting react component in the blade templates for google map?
+- Using builtin blade templates now
+- Inserting react component in the blade templates for google maps?
 
 Todo:
-- Read [Google Map API Doc][Google Map Api]
-- Think about new columns in Destinationi table
+- Read [Google Maps API Doc][Google Maps Api]
+- Think about new columns in Destination table
 - Move control flow to Controllers from Routes
 
 ## Thu 6/11
 Completed:
+- Loaded a react component from blade
+- Read [Simple Map] section of [Google Maps Api]
+- Implemented a map in view where default center coordinate is initialized by 
+of coordinates of user's destinations
+- Show `Makers` on the map
 
 Notes:
+- React components are triggered by ids so passing an id that corresponds to 
+a react component in `resources/js/components` included from `js/app.js` will 
+do it
+- logout dropdown from destinations page is not responding. May be because of react
 
 Todo:
+- Create form for latitude and longitude
+- Fix logout dropdown 
+- Create EC2 instance and deploy
+- Address completion and get coordinates from it using [Google Maps Places Library](if possible)
+
+## Fri 6/12
+Completed:  
+Notes:  
+Todo:  
+
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
 [Service Container]: https://laravel.com/docs/7.x/container
@@ -157,5 +176,7 @@ Todo:
 [Api Tutorial]: https://www.toptal.com/laravel/restful-laravel-api-tutorial
 [/routes/api.php]: ./routes/api.php
 [/app/Http/Controllers]: ./app/Http/Controllers
-[Google Map Api]: https://developers.google.com/maps/documentation
-[React Google Map]: https://www.npmjs.com/package/react-google-maps
+[Google Maps Api]: https://developers.google.com/maps/documentation
+[React Google Maps]: https://www.npmjs.com/package/react-google-maps
+[Simple Map]: https://developers.google.com/maps/documentation/javascript/examples/map-simple
+[Google Maps Places Library]: https://developers.google.com/maps/documentation/javascript/places?hl=en_US

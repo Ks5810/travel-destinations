@@ -18,7 +18,10 @@ class CreateDestinationsTable extends Migration
             $table->id('id');
             $table->timestamps();
             $table->string('name');
-            $table->boolean('visited')->nullable($value = true);
+            $table->boolean('visited')->nullable();
+            $table->string('address')->nullable();
+            $table->double('lat')->nullable();
+            $table->double('lng')->nullable();
 
             // Foreign key associated to id of owner
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
