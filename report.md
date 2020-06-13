@@ -168,6 +168,15 @@ Todo:
 - Fix logout dropdown
 - Address completion and get coordinates from it using [Google Maps Places Library](if possible)
 
+## Sat 6/13
+Completed:  
+- Fixed migration problem on `Destination` table
+- Fixed logout function
+
+Todo:
+- Address completion and get coordinates from it using [Google Maps Places Library](if possible)
+- Showing popular destinations in guest page
+
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
 [Service Container]: https://laravel.com/docs/7.x/container

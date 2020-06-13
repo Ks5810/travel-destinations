@@ -68,7 +68,7 @@
                             <div class="form-group row" style="padding-left:
                             10rem">
                                 <button
-                                        class="btn btn-info col-lg-5"
+                                        class="btn btn-secondary col-lg-5"
                                         type="submit"
                                 >
                                     Add Location
