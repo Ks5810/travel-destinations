@@ -1,5 +1,27 @@
 <?php
 
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
+class Destination extends Model
+{
+    protected $fillable = ['name', 'visited', 'address', 'lat', 'lng'];
+
+    /**
+     * Define relationship to users table
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('user', 'user_id');
+    }
+
+}
+
+<?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -38,3 +60,4 @@ class CreateDestinationsTable extends Migration
         Schema::dropIfExists('destinations');
     }
 }
+

@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 
 class Destination extends Model
 {
-    protected $fillable = ['id', 'name', 'user_id', 'visited', 'address', 'lat', 'lng'];
+    protected $fillable = ['name', 'user_id', 'visited', 'address', 'lat',
+'lng'];
 
     /**
      * Define relationship to users table
@@ -17,5 +17,4 @@ class Destination extends Model
     {
         return $this->belongsTo('user', 'user_id');
     }
-
 }
