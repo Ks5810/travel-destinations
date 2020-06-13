@@ -13,18 +13,9 @@ class CreateDestinationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('destinations', static function (Blueprint $table)
-        {
-            $table->id('id');
+        Schema::create('destinations', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->boolean('visited')->nullable();
-            $table->string('address')->nullable();
-            $table->double('lat')->nullable();
-            $table->double('lng')->nullable();
-
-            // Foreign key associated to id of owner
-            $table->bigInteger('user_id');
         });
     }
 
