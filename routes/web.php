@@ -18,6 +18,10 @@ use App\Http\Controllers\DestinationController;
 
 Route::get('/', function()
 {
+    if(Auth::check())
+    {
+        return redirect('/destinations');
+    }
     return view('home');
 });
 
@@ -25,10 +29,14 @@ Route::get('/destinations', function()
 {
     $username = Auth::user()->name;
     $user_id = Auth::user()->id;
-    $destinations = Destination::all()->where('user_id', $user_id);
+    // Getting an Array of Json
+    $destinations = Destination::where('user_id', $user_id)->get();
+    //echo $destinations;
+
     // Get average of lat and lng fields in destinations to center the map
     $center_lat = $destinations->average('lat');
     $center_lng = $destinations->average('lng');
+
     return view('destinations', [
         'username' => $username,
         'destinations' => $destinations,
@@ -37,10 +45,17 @@ Route::get('/destinations', function()
     ]);
 })->middleware('auth');
 
-Route::get('/destinations/create', function (Request $request)
+Route::post('/destinations', function (Request $request)
 {
     $user_id = Auth::user()->id;
     $username = Auth::user()->name;
+
+    $validatedData = $request->validate([
+        'name' => ['required', 'max:100'],
+        'lat' => ['required', 'numeric' ],
+        'lng' => ['required', 'numeric']
+    ]);
+
     Destination::create([
         'name' => $request->name,
         'visited' => false,
@@ -49,17 +64,7 @@ Route::get('/destinations/create', function (Request $request)
         'lng' => $request->lng,
     ]);
 
-    $destinations = Destination::all()->where('user_id', $user_id);
-    // Get average of lat and lng fields in destinations to center the map
-    $center_lat = $destinations->average('lat');
-    $center_lng = $destinations->average('lng');
-
-    return view('destinations', [
-        'username' => $username,
-        'destinations' => $destinations,
-        'center_lat' => $center_lat,
-        'center_lng' => $center_lng
-    ]);
+    return redirect('/destinations');
 })->middleware('auth');
 
 
@@ -69,16 +74,7 @@ Route::delete('/destinations/{id}', function($id)
     $user_id = Auth::user()->id;
     $destination = Destination::find($id);
     $destination->delete();
-
-    $destinations = Destination::all()->where('user_id', $user_id);
-    $center_lat = $destinations->average('lat');
-    $center_lng = $destinations->average('lng');
-    return view('destinations', [
-        'username' => $username,
-        'destinations' => $destinations,
-        'center_lat' => $center_lat,
-        'center_lng' => $center_lng
-    ]);
+    return redirect('/destinations');
 })->middleware('auth');
 
 Auth::routes();

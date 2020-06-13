@@ -4,7 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import { compose, withProps } from "recompose"
 import {
-    GoogleMap, Marker, withGoogleMap, withScriptjs
+    GoogleMap, Marker, withGoogleMap,
 } from "react-google-maps"
 import { Container } from "react-bootstrap";
 
@@ -16,8 +16,6 @@ const iconPrefixLink = `https://raw.githubusercontent.com/Concept211/Google-Maps
 
 const MyComponent = compose(
     withProps({
-        googleMapURL:
-            `https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDzOTjRZU44Jw8m9m5UFFOHehYZf2ACbVw&libraries=geometry,drawing,places`,
         loadingElement: <div style={ { height: `100%` } }/>,
         containerElement: <div style={ { height: `400px` } }/>,
         mapElement: <div style={ {
@@ -26,8 +24,7 @@ const MyComponent = compose(
             marginBottom: `1rem`
         } }/>,
     }),
-    withScriptjs,
-    withGoogleMap
+    withGoogleMap,
 )((props) =>
     <GoogleMap
         defaultZoom={ 1 }
@@ -41,7 +38,6 @@ const MyComponent = compose(
             props.destinations.map((destination, index) =>
             {
                 const { lat, lng, name } = destination;
-                console.log(iconColors[index%9], index);
                 return (
                     <Marker
                         key={ index }
@@ -61,6 +57,7 @@ const MyComponent = compose(
 
 const Map = (props) =>
 {
+    const { destinations } = props;
     return (
         <Container>
             <MyComponent

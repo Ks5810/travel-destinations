@@ -156,13 +156,17 @@ do it
 Todo:
 - Create form for latitude and longitude
 - Fix logout dropdown 
-- Create EC2 instance and deploy
+- Deploy to EC2
 - Address completion and get coordinates from it using [Google Maps Places Library](if possible)
 
 ## Fri 6/12
 Completed:  
-Notes:  
+- Form for latitude and longitude
+- Deployed to EC2
+
 Todo:  
+- Fix logout dropdown 
+- Address completion and get coordinates from it using [Google Maps Places Library](if possible)
 
 
 [Laravel Documentation]: https://laravel.com/docs/7.x

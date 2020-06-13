@@ -17,7 +17,8 @@
         "laravel/sanctum": "^2.4",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "tymon/jwt-auth": "dev-develop"
+        "tymon/jwt-auth": "dev-develop",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
