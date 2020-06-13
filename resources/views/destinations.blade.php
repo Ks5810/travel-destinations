@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="padding-top: 4rem">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -119,7 +119,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <div id="app" class="container">
+                    <div class="container">
                         <div id="map"
                              center_lat='{{ $center_lat }}'
                              center_lng='{{ $center_lng }}'
@@ -132,17 +132,3 @@
         </div>
     </div>
 @endsection
-
-
-{{--@section('scripts')--}}
-{{--    <div class="container">--}}
-{{--        <div id="map"--}}
-{{--             center_lat='{{ $center_lat }}'--}}
-{{--             center_lng='{{ $center_lng }}'--}}
-{{--             destinations='{{ $destinations }}'>--}}
-{{--            <script src="../js/app.js"></script>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--@endsection--}}
-
-

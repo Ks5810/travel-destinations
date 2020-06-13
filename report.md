@@ -165,7 +165,7 @@ Completed:
 - Deployed to EC2
 
 Todo:  
-- Fix logout dropdown 
+- Fix logout dropdown
 - Address completion and get coordinates from it using [Google Maps Places Library](if possible)
 
 

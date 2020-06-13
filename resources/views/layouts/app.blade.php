@@ -11,7 +11,8 @@
 
     <!-- Scripts -->
     <script defer src="{{ asset('js/app.js') }}"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?v=weekly&key=AIzaSyDzOTjRZU44Jw8m9m5UFFOHehYZf2ACbVw&libraries=geometry,drawing,places" ></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?v=weekly&key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=geometry,drawing,places"
+    ></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
