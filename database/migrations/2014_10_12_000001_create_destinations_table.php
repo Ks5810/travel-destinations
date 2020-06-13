@@ -24,7 +24,7 @@ class CreateDestinationsTable extends Migration
             $table->double('lng')->nullable();
 
             // Foreign key associated to id of owner
-            $table->id('user_id');
+            $table->bigInteger('user_id');
         });
     }
 
