@@ -22,10 +22,15 @@ class UserTableSeeder extends Seeder
         $password = Hash::make('126621');
 
         User::create([
-            'name' => 'Administrator',
+            'name' => 'Admin',
             'email' => 'admin@test.com',
             'password' => $password,
         ]);
 
+        User::create([
+            'name' => 'User2',
+            'email' => 'user2@test.com',
+            'password' => $password,
+        ]);
     }
 }

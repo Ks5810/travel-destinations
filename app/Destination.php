@@ -15,6 +15,6 @@ class Destination extends Model
      */
     public function user()
     {
-        return $this->belongsTo('user', 'user_id');
+        return $this->belongsTo(User::class);
     }
 }

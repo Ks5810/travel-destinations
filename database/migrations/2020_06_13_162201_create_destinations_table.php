@@ -23,7 +23,8 @@ class CreateDestinationsTable extends Migration
             $table->double('lng')->nullable();
 
             // Foreign key associated to id of owner
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()
+                ->onDelete('cascade');
         });
     }
 
