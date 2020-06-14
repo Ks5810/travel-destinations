@@ -44,10 +44,10 @@ Todo:
     <dt>Travel Destination List:</dt>
     <dd>A travel destination list web application that enables each user to enter
     where they want to travel and have a google maps integration that their
-    destinations are pinned in the map interface. </dd>
+    destinations are marked in the map interface. </dd>
     <ul>
     <li><dd>A destination list like a todo list</dd></li>
-    <li><dd>A map that users' destinations are pinned</dd></li>
+    <li><dd>A map that users' destinations are marked</dd></li>
     </ul>
 </dl>
 
@@ -172,10 +172,13 @@ Todo:
 Completed:  
 - Fixed migration problem on `Destination` table
 - Fixed logout function
+- Implemented error handling for invalid coordinates
+- Implemented auto address completion using [Google Maps Places Library]
+- Styled Layouts
 
 Todo:
-- Address completion and get coordinates from it using [Google Maps Places Library](if possible)
-- Showing popular destinations in guest page
+- Enable https on Nginx
+- Clean up the code 
 
 
 [Laravel Documentation]: https://laravel.com/docs/7.x

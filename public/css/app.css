@@ -17,6 +17,37 @@
   margin-bottom: 2rem;
 }
 
+.card .card-body {
+  padding: 1rem 4rem;
+}
+
+form .form-group .btn .btn-link {
+  width: 10rem;
+}
+
+form .form-group .btn-link {
+  margin-left: 0;
+  width: 12rem;
+}
+
+form .btn-link {
+  width: 10rem;
+}
+
+form .btn-add,
+form .btn-home {
+  width: 20rem;
+  margin-bottom: 2rem;
+}
+
+form .btn-remove {
+  width: 5rem;
+}
+
+.form-group label {
+  text-align: center;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

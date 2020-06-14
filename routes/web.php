@@ -2,9 +2,11 @@
 
 use App\Destination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DestinationController;
+use Illuminate\Support\Facades\Validator;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,9 +31,9 @@ Route::get('/destinations', function()
 {
     $username = Auth::user()->name;
     $user_id = Auth::user()->id;
-    // Getting an Array of Json
+
+    // Get matching Json data
     $destinations = Destination::where('user_id', $user_id)->get();
-    //echo $destinations;
 
     // Get average of lat and lng fields in destinations to center the map
     $center_lat = $destinations->average('lat');
@@ -47,14 +49,37 @@ Route::get('/destinations', function()
 
 Route::post('/destinations', function (Request $request)
 {
+
     $user_id = Auth::user()->id;
     $username = Auth::user()->name;
 
-    $validatedData = $request->validate([
+    $validator = Validator::make($request->all(), [
         'name' => ['required', 'max:100'],
         'lat' => ['required', 'numeric' ],
         'lng' => ['required', 'numeric']
     ]);
+
+    // Validate coordinates
+    $lat = $request->lat;
+    $lng = $request->lng;
+    $invalidLat = $lat > 90 || $lat < -90;
+    $invalidLng = $lng > 180 || $lng < -180;
+
+    if($invalidLat)
+    {
+        $validator->errors()
+            ->add('lat', 'Invalid latitude value!');
+    }
+    if($invalidLng)
+    {
+        $validator->errors()
+            ->add('lng', 'Invalid longitude value!');
+    }
+
+    if($invalidLat || $invalidLng || $validator->fails())
+    {
+        return Redirect::back()->withErrors($validator->errors());
+    }
 
     Destination::create([
         'name' => $request->name,

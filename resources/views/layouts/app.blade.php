@@ -60,30 +60,33 @@
                         @endif
                     @else
                         <ul class="nav flex-row">
-                            <li class="navbar-text" >
-                                    Hi, {{ Auth::user()->name }}
+                            <li class="navbar-text">
+                                Hi, {{ Auth::user()->name }}
                             </li>
                             <li class="nav-item">
                                 <form action="{{ route('logout') }}"
                                       method="POST">
                                     @csrf
                                     <input
-                                           class="btn btn-link"
-                                           type="submit"
-                                           name="logout"
-                                           value="Logout" />
+                                            class="btn btn-link"
+                                            type="submit"
+                                            name="logout"
+                                            value="Logout"/>
                                 </form>
                             </li>
                         </ul>
                     @endguest
                 </ul>
         </div>
-</div>
-</nav>
+    </nav>
 </div>
 
 <div id="app" class="content">
     @yield('content')
+</div>
+
+<div>
+    @yield('scripts')
 </div>
 
 </body>

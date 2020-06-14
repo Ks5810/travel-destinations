@@ -1,4 +1,4 @@
-// Google map setting
+// Google map
 
 import React from 'react'
 import ReactDOM from 'react-dom';
@@ -8,9 +8,8 @@ import {
 } from "react-google-maps"
 import { Container } from "react-bootstrap";
 
-const iconColors = [
-    'red', 'black', 'blue', 'green', 'grey', 'orange','purple', 'white', 'yellow'
-];
+const iconColors = [ 'red', 'black', 'blue', 'green', 'grey', 'orange','purple',
+                     'white', 'yellow' ];
 
 const iconPrefixLink = `https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_`
 
@@ -27,14 +26,14 @@ const MyComponent = compose(
     withGoogleMap,
 )((props) =>
     <GoogleMap
-        defaultZoom={ 1 }
+        defaultZoom={ 2 }
         defaultCenter={ {
-            lat: parseInt(props.center_lat),
-            lng: parseInt(props.center_lng)
+            lat: props.center_lat ? parseInt(props.center_lat): 51.507400, // London
+            lng: props.center_lng ? parseInt(props.center_lng) : -0.127800
         } }
     >
         {
-            props.isMarkerShown &&
+            props.isMarkerShown && props.destinations &&
             props.destinations.map((destination, index) =>
             {
                 const { lat, lng, name } = destination;
@@ -70,6 +69,7 @@ const Map = (props) =>
     )
 }
 
+// Render
 if(document.getElementById('map'))
 {
     const center_lat = document.getElementById('map')

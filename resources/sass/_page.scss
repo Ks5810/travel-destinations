@@ -13,6 +13,41 @@
 
 .card {
   margin-bottom: 2rem;
+
+  .card-body {
+    padding: 1rem 4rem;
+  }
+
 }
 
+
+form {
+  .form-group {
+    .btn .btn-link{
+      width: 10rem;
+    }
+
+    .btn-link {
+      margin-left: 0;
+      width: 12rem;
+    }
+  }
+  .btn-link {
+    width: 10rem;
+  }
+  .btn-add, .btn-home {
+    width: 20rem;
+    margin-bottom: 2rem;
+  }
+  .btn-remove {
+    width: 5rem;
+  }
+
+}
+
+.form-group {
+  label {
+    text-align: center;
+  }
+}
 

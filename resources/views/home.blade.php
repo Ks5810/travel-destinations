@@ -5,16 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Hello,
-                        guest!
+                    <div class="card-header">Hello, guest!
                     </div>
 
-                    <div class="px-lg-5 card-body d-flex flex-column
+                    <div class="card-body d-flex flex-column
                     justify-content-center text-center">
-                        <a class="mx-4 my-lg-4 btn btn-secondary"
+                        <a class=" my-lg-4 btn btn-home btn-secondary"
                            href="/login">Login</a>
                         or
-                        <a class="mx-4 my-lg-4 btn btn-secondary"
+                        <a class="my-lg-4 btn btn-home btn-secondary"
                            href="/register">Sign up</a>
                     </div>
                 </div>
