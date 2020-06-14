@@ -181,6 +181,12 @@ Todo:
 - Clean up the code 
 
 
+## Sun 6/14
+Completed:
+- Added favicon and manifest  
+
+Todo:
+
 [Laravel Documentation]: https://laravel.com/docs/7.x
 [Service Container]: https://laravel.com/docs/7.x/container
 [Laravel React]: https://blog.pusher.com/react-laravel-application/
