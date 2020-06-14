@@ -184,8 +184,12 @@ Todo:
 ## Sun 6/14
 Completed:
 - Added favicon and manifest  
+- Enabled TLS with lets encrypt
 
 Todo:
+- Set up static files cashing in Nginx
+
+
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
 [Service Container]: https://laravel.com/docs/7.x/container
