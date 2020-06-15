@@ -1,21 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" style="padding-top: 4rem">
+    <div class="container card-container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Hello, guest!
-                    </div>
-
-                    <div class="card-body d-flex flex-column
-                    justify-content-center text-center">
-                        <a class=" my-lg-4 btn btn-home btn-secondary"
+                    <div class="card-header">Hello, guest! </div>
+                    <div class="auth-card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column">
+                        <a class="btn my-2 btn-home btn-secondary"
                            href="/login">Login</a>
                         or
-                        <a class="my-lg-4 btn btn-home btn-secondary"
+                        <a class="btn my-2 btn-home btn-secondary"
                            href="/register">Sign up</a>
+                        </div>
                     </div>
+                </div>
                 </div>
             </div>
 @endsection

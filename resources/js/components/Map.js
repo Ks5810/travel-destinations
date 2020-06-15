@@ -16,11 +16,9 @@ const iconPrefixLink = `https://raw.githubusercontent.com/Concept211/Google-Maps
 const MyComponent = compose(
     withProps({
         loadingElement: <div style={ { height: `100%` } }/>,
-        containerElement: <div style={ { height: `400px` } }/>,
+        containerElement: <div style={ { height: `350px` } }/>,
         mapElement: <div style={ {
-            height: `95%`,
-            marginTop: `1rem`,
-            marginBottom: `1rem`
+            height: `100%`
         } }/>,
     }),
     withGoogleMap,
@@ -58,13 +56,11 @@ const Map = (props) =>
 {
     const { destinations } = props;
     return (
-        <Container>
             <MyComponent
                 isMarkerShown
                 center_lat={ props.center_lat }
                 center_lng={ props.center_lng }
                 destinations={ JSON.parse(props.destinations) }/>
-        </Container>
     
     )
 }

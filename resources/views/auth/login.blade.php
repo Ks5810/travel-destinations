@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="padding-top: 4rem">
+<div class="container card-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card auth">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
