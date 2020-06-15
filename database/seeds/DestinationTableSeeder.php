@@ -12,7 +12,7 @@ class DestinationTableSeeder extends Seeder
     public function run()
     {
         // Truncate existing tables
-        Destination::truncate();
+        //Destination::truncate();
 
         $faker = \Faker\Factory::create();
 
