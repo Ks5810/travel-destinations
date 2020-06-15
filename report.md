@@ -190,6 +190,12 @@ Todo:
 - Set up static files cashing in Nginx
 - Fix the `Reset Password` functionality
 
+## Mon
+Completed:
+- Added sample map to home view
+
+
+
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
 [Service Container]: https://laravel.com/docs/7.x/container
