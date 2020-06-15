@@ -193,9 +193,7 @@ Todo:
 ## Mon
 Completed:
 - Added sample map to home view
-
-
-
+- Enabled sending email for resetting password
 
 [Laravel Documentation]: https://laravel.com/docs/7.x
 [Service Container]: https://laravel.com/docs/7.x/container
