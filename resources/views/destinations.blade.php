@@ -163,8 +163,9 @@
                         @foreach( $destinations as $key => $destination )
                             <div class="list-group-item">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">{{ $key+1 }}
-                                        . {{ $destination->name }}</h5>
+                                    <p><b>{{ $key+1 }}. {{
+                                    $destination->name
+                                    }}</b></p>
                                     <form
                                             action="/destinations/{{ $destination->id }}"
                                             method="post"
@@ -172,24 +173,23 @@
                                         {{ method_field('delete') }}
                                         {{ csrf_field() }}
                                         <button
-                                                class="btn btn-sm btn-danger
-                                                btn-remove"
+                                                class="btn btn-sm btn-danger btn-remove"
                                                 type="submit"
                                         >
                                             Remove
                                         </button>
                                     </form>
                                 </div>
-                                <div class="px-2 py-1">
-                                    <p class="d-flex w-50
-                                justify-content-between flex-row mb-1">
-                                        <b>latitude:</b> {{ $destination->lat }}
-                                    </p>
-                                    <p class="d-flex w-50
-                                justify-content-between flex-row mb-1">
-                                        <b>longitude:</b> {{ $destination-> lng }}
-                                    </p>
-                                </div>
+{{--                                <div class="px-2 py-1">--}}
+{{--                                    <p class="d-flex w-50--}}
+{{--                                justify-content-between flex-row mb-1">--}}
+{{--                                        <b>latitude:</b> {{ $destination->lat }}--}}
+{{--                                    </p>--}}
+{{--                                    <p class="d-flex w-50--}}
+{{--                                justify-content-between flex-row mb-1">--}}
+{{--                                        <b>longitude:</b> {{ $destination-> lng }}--}}
+{{--                                    </p>--}}
+{{--                                </div>--}}
                             </div>
                         @endforeach
                     </div>
