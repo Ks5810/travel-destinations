@@ -95,7 +95,6 @@ Route::post('/destinations', function (Request $request)
 
 Route::delete('/destinations/{id}', function($id)
 {
-    $username = Auth::user()->name;
     $user_id = Auth::user()->id;
     $destination = Destination::find($id);
     $destination->delete();

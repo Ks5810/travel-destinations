@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Map Container -->
 <div class="container card-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,12 +9,12 @@
                 <div class="card-header">{{ $username }}'s Destinations
                 </div>
                 <div class="list-group">
+
+                    <!-- List locations -->
                     @foreach( $destinations as $key => $destination )
                     <div class="list-group-item">
                         <div class="d-flex w-100 justify-content-between">
-                            <p><b>{{ $key+1 }}. {{
-                                    $destination->name
-                                    }}</b></p>
+                            <p><b>{{ $key+1 }}. {{ $destination->name }}</b></p>
                             <form
                                     action="/destinations/{{ $destination->id }}"
                                     method="post"
@@ -28,19 +29,11 @@
                                 </button>
                             </form>
                         </div>
-                        {{--                                <div class="px-2 py-1">--}}
-                        {{--                                    <p class="d-flex w-50--}}
-                        {{--                                justify-content-between flex-row mb-1">--}}
-                        {{--                                        <b>latitude:</b> {{ $destination->lat }}--}}
-                        {{--                                    </p>--}}
-                        {{--                                    <p class="d-flex w-50--}}
-                        {{--                                justify-content-between flex-row mb-1">--}}
-                        {{--                                        <b>longitude:</b> {{ $destination-> lng }}--}}
-                        {{--                                    </p>--}}
-                        {{--                                </div>--}}
                     </div>
                     @endforeach
                 </div>
+
+                <!-- Load map component from js/components/Map.js -->
                 <div id="map" class="map"
                      center_lat='{{ $center_lat }}'
                      center_lng='{{ $center_lng }}'
@@ -51,14 +44,20 @@
         </div>
     </div>
 </div>
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            <!-- Add Location by Address Container -->
             <div class="card justify-content-center">
                 <div class="card-header">
                     Add New Destination by Address
                 </div>
                 <div class="card-body justify-content-center">
+
+                    <!-- Alert Errors -->
                     @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -68,12 +67,13 @@
                         </ul>
                     </div>
                     @endif
+
                     <form action='/destinations'
                           method="POST">
                         {{ method_field('post') }}
                         {{ csrf_field() }}
 
-                        <!-------------------- Name ----------------------->
+                        <!-- Form for Name -->
                         <div class="form-group row">
                             <label for="name" class="col-md-2
                                 col-form-label text-md-center">{{ __('Name')
@@ -91,7 +91,7 @@
                             </div>
                         </div>
 
-                        <!-------------------- Address -------------------->
+                        <!-- Form for Address -->
                         <div class="form-group row">
                             <label class="col-md-2
                                 col-form-label text-md-center"
@@ -105,6 +105,7 @@
                             <input type="hidden" id="loc_lng" name="lng"/>
                         </div>
 
+                        <!-- Submit Button -->
                         <div class="btn-wrapper d-flex justify-content-center">
                             <button
                                     class="btn btn-add btn-secondary"
@@ -117,12 +118,14 @@
                 </div>
             </div>
 
-
+            <!-- Add Location by Coordinate Container-->
             <div class="card">
                 <div class="card-header">Add New Destination by
-                    Coordinates
+                    Coordinate
                 </div>
                 <div class="card-body">
+
+                    <!-- Alert Errors -->
                     @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -137,6 +140,8 @@
                     >
                         {{ method_field('post') }}
                         {{ csrf_field() }}
+
+                        <!-- Form for Name -->
                         <div class="form-group row">
                             <label for="name" class="col-md-2
                                 col-form-label text-sm-center">{{ __('Name')
@@ -155,6 +160,7 @@
                             </div>
                         </div>
 
+                        <!-- Form for Latitude  -->
                         <div class="form-group row">
                             <label for="lat"
                                    class="col-form-label col-md-2">{{
@@ -179,6 +185,7 @@
                                 ('Longitude')
                                 }}</label>
 
+                            <!-- Form for Longitude -->
                             <div class="col-md-3">
                                 <input
                                         id="lng" type="text" name="lng"
@@ -192,6 +199,8 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <!-- Submit Button -->
                         <div class="d-flex justify-content-center">
                             <button
                                     class="btn btn-add btn-secondary"
@@ -211,8 +220,6 @@
 @section('scripts')
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script>
-
-
     // Prevent sending form by enter key
     var searchInput = 'search_input';
     $('#search_input').keydown(function(e)
@@ -258,5 +265,4 @@
     });
 </script>
 <script src="{{ asset('js/app.js') }}"></script>
-
-        @endsection
+@endsection
